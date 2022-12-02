@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load crispy_forms_tags %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user-register</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <br>
+    <div class="container">
+        <h1 style="text-align: center;font-family: Verdana, Arial, Helvetica, sans-serif;"><b>Create New Account</b></h1>
+        <hr>
+        <form action="" method="POST">{% csrf_token %}
+            {{ form | crispy }}
+            <center><button type="submit" class="btn btn-success">Register</button></center>
+        </form><br>
+        <center><b>-----------------------------------------------------------------------OR-----------------------------------------------------------------------</b></center>
+        <br><h4 style="text-align:center;font-family: cursive;"> Have an account? <a href="/login/"> Login </a></h4></center>
+    </div>
+</body>
+</html>

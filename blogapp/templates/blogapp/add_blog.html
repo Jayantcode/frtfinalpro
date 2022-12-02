@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load crispy_forms_tags %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNYwNQVHhJmeIdN-NGTzcSIRdmKU_fZ1Lw8Q&usqp=CAU" width="30" height="30" class="d-inline-block align-top" alt="">
+        <b>Blog Application</b>
+        </a>
+        <b>Login As {{ user }}</b>
+        <div>
+            
+            <a class="btn btn-primary" href="/blogs/blogs-list/" role="button">Blogs list</a>&nbsp;&nbsp;&nbsp;
+ 
+            <a class="btn btn-primary" href="/logout/" role="button">Logout</a>
+        </div>
+        
+   </nav>
+    <br>
+    <div class="container">
+        <h1 style="text-align: center;">Blogapp</h1>
+        <hr>
+        <form action="" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+            {{ form | crispy }}
+            <center><button type="submit" class="btn btn-success ">Add blog + </button></center>
+        </form><br>
+        
+    </div>
+</body>
+</html>

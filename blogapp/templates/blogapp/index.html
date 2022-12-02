@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light">
+       <a class="navbar-brand" href="#">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNYwNQVHhJmeIdN-NGTzcSIRdmKU_fZ1Lw8Q&usqp=CAU" width="30" height="30" class="d-inline-block align-top" alt="">
+       <b style="font-family: fantasy;">Blogs Application</b>
+       </a>
+       <b style="font-family: fangsong;">Login As {{ user }}</b>
+       <div>
+           <a class="btn btn-primary" href="/blogs/create/new/blog/" role="button">Add blogs</a>&nbsp;&nbsp;&nbsp;
+           <a class="btn btn-primary" href="/logout/" role="button">Logout</a>
+       </div>
+       
+  </nav>
+     <div class="container">
+        {% for blog in blogs %}
+           <hr>
+           <h2 style="font-family: Times, Times New Roman, Georgia, serif;"><a href="/blogs/get/blog/{{blog.id}}/">{{ blog.title }}</a></h2>
+           <b><p style="font-family: cursive;">Blog Created By {{ blog.user}} on date {{ blog.created }}</p></b>
+           <hr>
+           <p>{{ blog.body }}</p>
+           <p><img src="{{ blog.blog_img.url }}" alt="" height="200" width="300"></p>
+        {% endfor %}
+     </div>
+</body>
+</html>

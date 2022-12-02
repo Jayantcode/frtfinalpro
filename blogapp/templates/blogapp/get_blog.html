@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light">
+       <a class="navbar-brand" href="#">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNYwNQVHhJmeIdN-NGTzcSIRdmKU_fZ1Lw8Q&usqp=CAU" width="30" height="30" class="d-inline-block align-top" alt="">
+       <b style="font-family: fantasy;">Blogs Application</b>
+       </a>
+       <b>Login As {{ user }}</b>
+       <div>
+           <a class="btn btn-primary" href="#" role="button">Add blogs</a>&nbsp;&nbsp;&nbsp;
+           <a class="btn btn-primary" href="/blogs/blogs-list/" role="button">Blogs list</a>&nbsp;&nbsp;&nbsp;
+
+           <a class="btn btn-primary" href="/logout/" role="button">Logout</a>
+       </div>
+       
+  </nav>
+     <div class="container">
+        
+        <hr>
+        <h2><a href="/blogs/get/blog/{{blog.id}}/">{{ obj.title }}</a></h2>
+        <b><p>Blog Created By {{ obj.user}} on date {{ obj.created }}</p></b>
+        <hr>
+        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: large;">{{ obj.body }}</p>
+        <p><img src="{{ obj.blog_img.url }}" alt="" height="200" width="300"></p>
+       
+    </div>
+    <hr>
+       {% if user.id == obj.user.id %}
+       <div style="text-align:center;">
+        <a class="btn btn-warning " href="/blogs/update/{{obj.id}}/" role="button">Update +</a>&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-danger " href="/blogs/delete/{{obj.id}}/" role="button">Delete -</a>
+       </div>
+       <hr> 
+       {% endif %}
+</body>
+</html>
